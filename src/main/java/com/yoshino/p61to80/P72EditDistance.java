@@ -26,7 +26,6 @@ public class P72EditDistance {
             }
         }
         return dp[s1Length][s2Length];
-
     }
 
 //    public static int minDistance(String word1, String word2) {
