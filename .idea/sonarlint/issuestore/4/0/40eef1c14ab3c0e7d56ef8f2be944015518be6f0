@@ -1,0 +1,12 @@
+
+[
+squid:S106i"9Replace this use of System.out or System.err by a logger.(Ğë½«ûÿÿÿÿ8…¥ò-
+V
+squid:S106l"9Replace this use of System.out or System.err by a logger.(òÿœ–8çË¡¡ò-
+psquid:S37764"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(óÛçí8çË¡¡ò-
+Dsquid:S1659$"!Declare "ans" on a separate line.(¿†ı†ùÿÿÿÿ8“ß³¡ò-
+[
+squid:S106k"9Replace this use of System.out or System.err by a logger.(ƒÃäøÿÿÿÿ8•¾ÙŸò-
+Wsquid:UselessImportCheck"'Remove this unused import 'lombok.val'.(ÙÅ¶ÿÿÿÿÿ8àÅ± ò-
+[
+squid:S106j"9Replace this use of System.out or System.err by a logger.(¯ß–éûÿÿÿÿ8–ú¨ò-

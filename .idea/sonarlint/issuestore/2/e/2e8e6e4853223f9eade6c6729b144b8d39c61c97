@@ -1,0 +1,25 @@
+
+[
+squid:S106="9Replace this use of System.out or System.err by a logger.(óıïğúÿÿÿÿ8«ˆñ-
+[
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ÿÔ­Úûÿÿÿÿ8í°ÈŸñ-
+V
+squid:S106E"9Replace this use of System.out or System.err by a logger.(÷šŠ8ÍæıŸñ-
+usquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(‹ã°Øıÿÿÿÿ8Ş¢úñ-
+[
+squid:S106>"9Replace this use of System.out or System.err by a logger.(Àœÿÿÿÿÿÿ8í¹ˆñ-
+Xsquid:UnusedPrivateMethod",Remove this unused private "isBlank" method.(®°ªå8æ£ıŸñ-
+V
+squid:S106A"9Replace this use of System.out or System.err by a logger.(àéä8§½„Ÿñ-
+V
+squid:S106@"9Replace this use of System.out or System.err by a logger.(Ê€‰¯8Ò’ñ-
+V
+squid:S106?"9Replace this use of System.out or System.err by a logger.(úÈ«¶8ÌŸ‰ñ-
+[
+squid:S106F"9Replace this use of System.out or System.err by a logger.(üÚ°øÿÿÿÿ8´Üƒ ñ-
+[
+squid:S106C"9Replace this use of System.out or System.err by a logger.(©Ÿóüÿÿÿÿ8ÚãÈŸñ-
+V
+squid:S106<"9Replace this use of System.out or System.err by a logger.(Ò¬·8×ì„ñ-
+[
+squid:S106D"9Replace this use of System.out or System.err by a logger.(­çÍŸıÿÿÿÿ8ë­ÌŸñ-

@@ -1,0 +1,27 @@
+
+V
+squid:S106W"9Replace this use of System.out or System.err by a logger.(Ûİã8² À‘ô-
+[
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ÒÓÀñùÿÿÿÿ8Çñ¿‘ô-
+isquid:CommentedOutCodeLineE"<This block of commented-out lines of code should be removed.(Îâï8É²ÿ‘ô-
+nsquid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(ËÀê‹üÿÿÿÿ8É²ÿ‘ô-
+nsquid:CommentedOutCodeLine1"<This block of commented-out lines of code should be removed.(ƒ ¾¯úÿÿÿÿ8É²ÿ‘ô-
+hsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(ª¯°q8É²ÿ‘ô-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¹ıÙúÿÿÿÿ8÷’ô-
+V
+squid:S106S"9Replace this use of System.out or System.err by a logger.(áç‚8¸‰ùô-
+isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(Ü—à˜8É²ÿ‘ô-
+V
+squid:S106V"9Replace this use of System.out or System.err by a logger.(Õã¿8² À‘ô-
+V
+squid:S106X"9Replace this use of System.out or System.err by a logger.(†ï™8‘Ì‘ô-
+isquid:CommentedOutCodeLine/"<This block of commented-out lines of code should be removed.(­Œæû8É²ÿ‘ô-
+V
+squid:S106Z"9Replace this use of System.out or System.err by a logger.(ªÁ¸ö8˜Šâ‘ô-
+gsquid:S1134 "DTake the required action to fix the issue indicated by this comment.(ö¦ğÆüÿÿÿÿ8š¶€’ô-
+]squid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8“á‘’ô-
+V
+squid:S106T"9Replace this use of System.out or System.err by a logger.(‚ÒÄã8ëß¹‘ô-
+[
+squid:S106Y"9Replace this use of System.out or System.err by a logger.(õ€Ôşÿÿÿÿ8¡¢×‘ô-
+hsquid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(—à÷8É²ÿ‘ô-

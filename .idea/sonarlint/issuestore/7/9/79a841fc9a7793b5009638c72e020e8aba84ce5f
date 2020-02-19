@@ -1,0 +1,17 @@
+
+[
+squid:S106M"9Replace this use of System.out or System.err by a logger.(êåÉÿøÿÿÿÿ8´¼ô½‚.
+asquid:UselessImportCheck"6Remove this unused import 'java.nio.channels.Channel'.(÷ê¹8ºæŞ¾‚.
+[
+squid:S106P"9Replace this use of System.out or System.err by a logger.(õâÈúÿÿÿÿ8åĞƒ¾‚.
+V
+squid:S106R"9Replace this use of System.out or System.err by a logger.(¸„ø×8¹®ñ¾‚.
+[
+squid:S106O"9Replace this use of System.out or System.err by a logger.(èúÕúÿÿÿÿ8óÔ÷½‚.
+V
+squid:S106L"9Replace this use of System.out or System.err by a logger.(Ï—¤ø8³ëó½‚.
+usquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦æöÊÿÿÿÿÿ8äûØ½‚.
+[
+squid:S106N"9Replace this use of System.out or System.err by a logger.(å¸¹ÿÿÿÿÿ8…şö½‚.
+[
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(ıÙ‘ıÿÿÿÿ8ªÖí¾‚.

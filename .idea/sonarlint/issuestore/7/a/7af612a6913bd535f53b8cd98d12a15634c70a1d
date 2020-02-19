@@ -1,0 +1,6 @@
+
+[
+squid:S1067"9Replace this use of System.out or System.err by a logger.(Ó¹Ø’ûÿÿÿÿ8úË™ƒö-
+=squid:S1659#"Declare "j" on a separate line.(üÉÛ8¢Ëîƒö-
+isquid:CommentedOutCodeLine2"<This block of commented-out lines of code should be removed.(£‡ø³8™¹ñƒö-
+isquid:CommentedOutCodeLine4"<This block of commented-out lines of code should be removed.(Õ„öÃ8¹›‹„ö-

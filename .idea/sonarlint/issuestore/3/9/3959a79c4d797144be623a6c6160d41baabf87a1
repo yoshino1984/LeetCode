@@ -1,0 +1,8 @@
+
+V
+squid:S106""9Replace this use of System.out or System.err by a logger.(Îéì¶8¡²¾É.
+V
+squid:S106$"9Replace this use of System.out or System.err by a logger.(Ú›™á8üäÑÉ.
+\squid:UselessImportCheck"1Remove this unused import 'java.util.Comparator'.(î¹ó¹8¡’³É.
+V
+squid:S106#"9Replace this use of System.out or System.err by a logger.(ÉùÈ¹8àºÀÉ.
