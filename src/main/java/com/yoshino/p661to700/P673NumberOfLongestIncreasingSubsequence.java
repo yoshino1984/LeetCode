@@ -1,6 +1,4 @@
-package com.yoshino.p661to680;
-
-import lombok.val;
+package com.yoshino.p661to700;
 
 import java.util.*;
 
