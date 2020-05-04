@@ -1,4 +1,4 @@
-package com.yoshino.p641to660;
+package com.yoshino.p641to650;
 
 public class MyCircularDeque {
 

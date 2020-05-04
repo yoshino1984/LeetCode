@@ -1,4 +1,4 @@
-package com.yoshino.p661to700;
+package com.yoshino.p651to700;
 
 import java.util.*;
 
