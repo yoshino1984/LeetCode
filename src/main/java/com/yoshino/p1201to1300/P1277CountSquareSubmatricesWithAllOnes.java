@@ -1,4 +1,4 @@
-package com.yoshino.p1261to1280;
+package com.yoshino.p1201to1300;
 
 public class P1277CountSquareSubmatricesWithAllOnes {
 
