@@ -1,9 +1,8 @@
-package com.yoshino.p901to920;
+package com.yoshino.p901to950;
 
 import com.alibaba.fastjson.JSON;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class P912SortAnArray {

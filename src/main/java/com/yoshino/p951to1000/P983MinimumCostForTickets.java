@@ -1,4 +1,4 @@
-package com.yoshino.p981to1000;
+package com.yoshino.p951to1000;
 
 import java.util.HashMap;
 import java.util.HashSet;
