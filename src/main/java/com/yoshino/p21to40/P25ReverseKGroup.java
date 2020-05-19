@@ -4,7 +4,7 @@ import com.yoshino.model.ListNode;
 
 public class P25ReverseKGroup {
 
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode reverseKGroup1(ListNode head, int k) {
         if (k <= 1 || head == null || head.next == null) {
             return head;
         }
@@ -13,7 +13,10 @@ public class P25ReverseKGroup {
         ListNode pre = listNode;
         ListNode end = listNode;
         while (end.next != null) {
-            for (int i = 0; i < k && end.next != null; i++) {
+            for (int i = 0; i < k; i++) {
+                if (end.next == null) {
+                    return listNode.next;
+                }
                 end = end.next;
             }
             ListNode start = pre.next;
@@ -41,4 +44,37 @@ public class P25ReverseKGroup {
         }
         return pre;
     }
+
+//    public ListNode reverseKGroup(ListNode head, int k) {
+//        if (head == null) {
+//            return null;
+//        }
+//        ListNode cur = head;
+//        for (int i = 0; i < k - 1; i++) {
+//            cur = cur.next;
+//            if (cur == null) {
+//                return head;
+//            }
+//        }
+//
+//        ListNode next = reverseKGroup(cur.next, k);
+//        cur.next = null;
+//        reverse(head);
+//        head.next = next;
+//        return cur;
+//    }
+//
+//    private ListNode reverse(ListNode head) {
+//        ListNode prev = null;
+//        ListNode cur = head;
+//        while (cur != null) {
+//            ListNode next = cur.next;
+//            cur.next = prev;
+//            prev = cur;
+//            cur = next;
+//        }
+//        return prev;
+//    }
+
+
 }

@@ -19,19 +19,38 @@ public class P142LinkedListCycleII {
     }
 
     public ListNode detectCycle2(ListNode head) {
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if (slow == fast) {
+//                ListNode ptr1 = head;
+//                while (ptr1 != slow) {
+//                    ptr1 = ptr1.next;
+//                    slow = slow.next;
+//                }
+//                return ptr1;
+//            }
+//        }
+//        return null;
+        if (head == null) {
+            return null;
+        }
+        ListNode fast = head.next;
         ListNode slow = head;
-        ListNode fast = head;
         while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
             if (slow == fast) {
                 ListNode ptr1 = head;
-                while (ptr1 != slow) {
+                ListNode ptr2 = slow.next;
+                while (ptr1 != ptr2) {
                     ptr1 = ptr1.next;
-                    slow = slow.next;
+                    ptr2 = ptr2.next;
                 }
                 return ptr1;
             }
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return null;
     }

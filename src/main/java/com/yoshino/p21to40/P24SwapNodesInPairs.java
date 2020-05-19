@@ -10,17 +10,18 @@ import com.yoshino.model.ListNode;
 public class P24SwapNodesInPairs {
 
     public ListNode swapPairs(ListNode head) {
-        ListNode pre = new ListNode(-1);
-        pre.next = head;
-        ListNode temp = pre;
-        while (temp.next != null && temp.next.next != null) {
-            ListNode first = temp.next;
-            ListNode second = temp.next.next;
+        ListNode prev = new ListNode(-1);
+        prev.next = head;
+        ListNode cur = prev;
+        while (cur.next != null && cur.next.next != null) {
+            ListNode first = cur.next;
+            ListNode second = cur.next.next;
+
             first.next = second.next;
             second.next = first;
-            temp.next = second;
-            temp = first;
+            cur.next = second;
+            cur = first;
         }
-        return pre.next;
+        return prev.next;
     }
 }

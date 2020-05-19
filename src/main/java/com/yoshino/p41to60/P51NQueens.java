@@ -1,9 +1,14 @@
 package com.yoshino.p41to60;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class P51NQueens {
+
+    private List<List<String>> ret;
+    private int[] array;
 
     /**
      * N皇后问题，使用回溯算法，递归迭代所有可能性
@@ -12,50 +17,53 @@ public class P51NQueens {
      * @return
      */
     public List<List<String>> solveNQueens(int n) {
-        res = new ArrayList<>();
-        int[] array = new int[n];
-        nQueens(array, 0,  n);
-        return res;
+        ret = new ArrayList<>();
+        array = new int[n];
+        solveNQueens(0, n);
+        return ret;
     }
 
-    static List<List<String>> res;
-    private void nQueens(int[] array, int i, int n) {
-        if (i == n) {
-            res.add(print(array));
+    private void solveNQueens(int curIndex, int target) {
+        if (curIndex == target) {
+            ret.add(print());
             return;
         }
-        for (int j = 0; j < n; j++) {
-            if (isMatch(array, i, j)) {
-                array[i] = j;
-                nQueens(array, i + 1, n);
+        for (int i = 0; i < target; i++) {
+            if (isMatch(curIndex, i)) {
+                array[curIndex] = i;
+                solveNQueens(curIndex + 1, target);
             }
         }
     }
 
-    private List<String> print(int[] array) {
-        List<String> res = new ArrayList<>();
-        for (int index : array) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < array.length; i++) {
-                if (i == index) {
-                    stringBuilder.append("Q");
-                } else {
-                    stringBuilder.append(".");
-                }
-            }
-            res.add(stringBuilder.toString());
-        }
-        return res;
-    }
-
-    private boolean isMatch(int[] array, int i, int j) {
-        for (int index = 0; index < i; index++) {
-            if (array[i - index - 1] == j || array[i - index - 1] == j + 1 + index
-                || array[i - index - 1] == j - 1 - index ) {
+    private boolean isMatch(int curIndex, int i) {
+        for (int index = 0; index < curIndex; index++) {
+            if (array[index] == i || array[index] == i + index - curIndex
+                || array[index] == i + curIndex - index) {
                 return false;
             }
         }
         return true;
+    }
+
+    private List<String> print() {
+        List<String> retList = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            StringBuilder str = new StringBuilder();
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] == j) {
+                    str.append("Q");
+                } else {
+                    str.append(".");
+                }
+            }
+            retList.add(str.toString());
+        }
+        return retList;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(JSON.toJSONString(new P51NQueens().solveNQueens(4)));;
     }
 
 }
