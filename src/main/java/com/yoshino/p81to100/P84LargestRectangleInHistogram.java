@@ -6,7 +6,7 @@ public class P84LargestRectangleInHistogram {
 
     /**
      * 栈
-     * 使用栈来记录历史柱状图的高度
+     * 使用栈来记录历史柱状图的高度 （原理是计算以某根柱子a作为最低高度，寻找a的左右边界的过程
      * @param heights
      * @return
      */

@@ -1,4 +1,4 @@
-package com.yoshino.p201to220;
+package com.yoshino.p221top250;
 
 import java.util.Deque;
 import java.util.LinkedList;
