@@ -3,6 +3,7 @@ package com.yoshino.p501to600;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * N叉树的前序遍历

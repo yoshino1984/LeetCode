@@ -2,9 +2,7 @@ package com.yoshino.p141to160;
 
 import com.yoshino.model.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 前序遍历
@@ -28,24 +26,25 @@ public class P144BinaryTreePreorderTraversal {
     }
 
     public List<Integer> preorderTraversal2(TreeNode root) {
-        List<Integer> retList = new ArrayList<>();
-        if (root == null) {
-            return retList;
+        List<Integer> ans = new ArrayList<>();
+        if (Objects.isNull(root)) {
+            return ans;
         }
-        Stack<TreeNode> stack = new Stack<>();
+
+        LinkedList<TreeNode> stack = new LinkedList<>();
         stack.add(root);
 
         while (!stack.isEmpty()) {
-            TreeNode cur = stack.pop();
-            retList.add(cur.val);
+            TreeNode cur = stack.pollFirst();
+            ans.add(cur.val);
             if (cur.right != null) {
-                stack.push(cur.right);
+                stack.addFirst(cur.right);
             }
             if (cur.left != null) {
-                stack.push(cur.left);
+                stack.addFirst(cur.left);
             }
         }
 
-        return retList;
+        return ans;
     }
 }

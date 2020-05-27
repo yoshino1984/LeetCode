@@ -3,6 +3,7 @@ package com.yoshino.P401to450;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * N叉树层序遍历
@@ -50,5 +51,30 @@ public class P429NAryTreeLevelOrderTraversal {
         }
 
         return ans;
+    }
+
+
+    public List<List<Integer>> levelOrder2(Node root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (Objects.isNull(root)) {
+            return ans;
+        }
+
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> level = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                Node cur = queue.pollFirst();
+                level.add(cur.val);
+                queue.addAll(cur.children);
+            }
+            ans.add(level);
+        }
+
+        return ans;
+
     }
 }

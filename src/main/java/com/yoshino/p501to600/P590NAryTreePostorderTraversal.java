@@ -1,9 +1,6 @@
 package com.yoshino.p501to600;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * N叉树的后序遍历
@@ -41,7 +38,7 @@ public class P590NAryTreePostorderTraversal {
         if (node == null) {
             return;
         }
-        if (node.children != null || node.children.size() > 0) {
+        if (Objects.nonNull(node.children) && !node.children.isEmpty()) {
             for (Node child : node.children) {
                 helper(child, ans);
             }
@@ -63,9 +60,9 @@ public class P590NAryTreePostorderTraversal {
         while (!stack.isEmpty()) {
             Node cur = stack.pollLast();
             ans.addFirst(cur.val);
-            for (Node item : cur.children) {
-                if (item != null) {
-                    stack.add(item);
+            for (Node child : cur.children) {
+                if (Objects.nonNull(child)) {
+                    stack.addLast(child);
                 }
             }
         }
