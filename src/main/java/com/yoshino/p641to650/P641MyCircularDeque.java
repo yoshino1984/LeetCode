@@ -1,21 +1,20 @@
 package com.yoshino.p641to650;
 
-public class MyCircularDeque {
+public class P641MyCircularDeque {
 
-    private int n;
-    private int[] items;
-    private int size;
+    private int[] elementData;
+    private int capacity;
     private int front;
     private int rear;
 
-
     /** Initialize your data structure here. Set the size of the deque to be k. */
-    public MyCircularDeque(int k) {
-        this.n = k;
-        this.items = new int[k];
-        this.size = 0;
-        this.front = 0;
-        this.rear = k - 1;
+    public P641MyCircularDeque(int k) {
+        elementData = new int[k + 1];
+        capacity = elementData.length;
+        // 指向第一个有效元素
+        front = 0;
+        // 指向最后一个有效元素的后一位
+        rear = 0;
     }
 
     /** Adds an item at the front of Deque. Return true if the operation is successful. */
@@ -23,9 +22,8 @@ public class MyCircularDeque {
         if (isFull()) {
             return false;
         }
-        items[front] = value;
-        front = (front + 1) % n;
-        size++;
+        front = (front - 1 + capacity) % capacity;
+        elementData[front] = value;
         return true;
     }
 
@@ -34,11 +32,9 @@ public class MyCircularDeque {
         if (isFull()) {
             return false;
         }
-        items[rear] = value;
-        rear = (rear - 1 + n) % n;
-        size++;
+        elementData[rear] = value;
+        rear = (rear + 1) % capacity;
         return true;
-
     }
 
     /** Deletes an item from the front of Deque. Return true if the operation is successful. */
@@ -46,8 +42,7 @@ public class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        front = (front - 1 + n) % n;
-        size--;
+        front = (front + 1) % capacity;
         return true;
     }
 
@@ -56,42 +51,33 @@ public class MyCircularDeque {
         if (isEmpty()) {
             return false;
         }
-        rear = (rear + 1) % n;
-        size--;
+        rear = (rear - 1 + capacity) % capacity;
         return true;
 
     }
 
     /** Get the front item from the deque. */
     public int getFront() {
-        if (isEmpty()) {
-            return 0-1;
-        }
-        return items[(front - 1 + n) % n];
-
+        return isEmpty() ? -1 : elementData[front];
     }
 
-    /** Get the rear item from the deque. */
+    /** Get the last item from the deque. */
     public int getRear() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return items[(rear + 1) % n];
-
+        return isEmpty() ? -1 : elementData[(rear - 1 + capacity) % capacity];
     }
 
     /** Checks whether the circular deque is empty or not. */
     public boolean isEmpty() {
-        return size == 0;
+        return front == rear;
     }
 
     /** Checks whether the circular deque is full or not. */
     public boolean isFull() {
-        return size == n;
+        return (rear + 1) % capacity == front;
     }
 
     public static void main(String[] args) {
-        MyCircularDeque circularDeque = new MyCircularDeque(3); // 设置容量大小为3
+        P641MyCircularDeque circularDeque = new P641MyCircularDeque(3); // 设置容量大小为3
         System.out.println(circularDeque.insertLast(1));;			        // 返回 true
         circularDeque.insertLast(2);			        // 返回 true
         circularDeque.insertFront(3);			        // 返回 true
@@ -106,8 +92,8 @@ public class MyCircularDeque {
 }
 
 /**
- * Your MyCircularDeque object will be instantiated and called as such:
- * MyCircularDeque obj = new MyCircularDeque(k);
+ * Your P641MyCircularDeque object will be instantiated and called as such:
+ * P641MyCircularDeque obj = new P641MyCircularDeque(k);
  * boolean param_1 = obj.insertFront(value);
  * boolean param_2 = obj.insertLast(value);
  * boolean param_3 = obj.deleteFront();
