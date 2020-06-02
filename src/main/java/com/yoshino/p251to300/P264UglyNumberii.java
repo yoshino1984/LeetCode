@@ -17,26 +17,24 @@ public class P264UglyNumberii {
         return (int) UGLY_NUMS[n - 1];
     }
 
-    public static long[] UGLY_NUMS = new long[1690];
+    private static final long[] UGLY_NUMS = new long[1690];
 
     static {
-        PriorityQueue<Long> heap = new PriorityQueue<>();
-        heap.add(1L);
+        PriorityQueue<Long> pq = new PriorityQueue<>();
         Set<Long> seen = new HashSet<>();
-        seen.add(1L);
+        pq.offer(1L);
         for (int i = 0; i < UGLY_NUMS.length; i++) {
-            Long cur = heap.poll();
+            Long cur = pq.poll();
             UGLY_NUMS[i] = cur;
-            addUglyNumber(heap, seen, cur * 2);
-            addUglyNumber(heap, seen, cur * 3);
-            addUglyNumber(heap, seen, cur * 5);
+            addItem(pq, seen, cur * 2);
+            addItem(pq, seen, cur * 3);
+            addItem(pq, seen, cur * 5);
         }
     }
 
-    private static void addUglyNumber(PriorityQueue<Long> heap, Set<Long> seen, Long uglyNum) {
+    private static void addItem(PriorityQueue<Long> pq, Set<Long> seen, Long uglyNum) {
         if (seen.add(uglyNum)) {
-            heap.add(uglyNum);
+            pq.offer(uglyNum);
         }
     }
-
 }
