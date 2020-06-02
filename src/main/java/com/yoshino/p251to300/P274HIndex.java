@@ -1,4 +1,4 @@
-package com.yoshino.p221top250;
+package com.yoshino.p251to300;
 
 import java.util.Arrays;
 import java.util.Comparator;

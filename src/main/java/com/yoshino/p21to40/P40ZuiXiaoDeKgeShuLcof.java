@@ -21,8 +21,5 @@ public class P40ZuiXiaoDeKgeShuLcof {
     }
 
     public static void main(String[] args) {
-         Joiner STRING_JOINER = Joiner.on("+");
-
-        System.out.println(STRING_JOINER.join(1, 2));
     }
 }
