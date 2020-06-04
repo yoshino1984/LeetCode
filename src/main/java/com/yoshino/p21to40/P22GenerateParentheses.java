@@ -1,5 +1,7 @@
 package com.yoshino.p21to40;
 
+import org.checkerframework.checker.units.qual.A;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,24 +14,23 @@ public class P22GenerateParentheses {
      * 递归解法
      * 时间复杂度
      */
-    List<String> ans;
     public List<String> generateParenthesis(int n) {
-        ans = new ArrayList<>();
-        generate(0, 0, n, "");
+        List<String> ans = new ArrayList<>();
+        generate(0, 0, n, "", ans);
         return ans;
     }
 
-    private void generate(int left, int right, int n, String str) {
-        if (left == n && right == n) {
+    private void generate(int left, int right, int max, String str, List<String> ans) {
+        if (left == max && right == max) {
             ans.add(str);
             return;
         }
 
-        if (left < n) {
-            generate(left + 1, right, n, str + "(");
+        if (left < max) {
+            generate(left + 1, right, max, str + "(", ans);
         }
         if (right < left) {
-            generate(left, right + 1, n, str + ")");
+            generate(left, right + 1, max, str + ")", ans);
         }
     }
 }

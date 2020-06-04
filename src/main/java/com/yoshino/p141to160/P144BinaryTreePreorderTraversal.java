@@ -27,21 +27,19 @@ public class P144BinaryTreePreorderTraversal {
 
     public List<Integer> preorderTraversal2(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
-        if (Objects.isNull(root)) {
-            return ans;
+        LinkedList<TreeNode> deque = new LinkedList<>();
+        if (root != null) {
+            deque.add(root);
         }
 
-        LinkedList<TreeNode> stack = new LinkedList<>();
-        stack.add(root);
-
-        while (!stack.isEmpty()) {
-            TreeNode cur = stack.pollFirst();
+        while (!deque.isEmpty()) {
+            TreeNode cur = deque.pollFirst();
             ans.add(cur.val);
-            if (cur.right != null) {
-                stack.addFirst(cur.right);
+            if (Objects.nonNull(cur.right)) {
+                deque.addFirst(cur.right);
             }
-            if (cur.left != null) {
-                stack.addFirst(cur.left);
+            if (Objects.nonNull(cur.left)) {
+                deque.addFirst(cur.left);
             }
         }
 
