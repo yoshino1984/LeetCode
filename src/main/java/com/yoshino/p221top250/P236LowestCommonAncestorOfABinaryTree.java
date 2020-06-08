@@ -2,10 +2,7 @@ package com.yoshino.p221top250;
 
 import com.yoshino.model.TreeNode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 二叉树的最近公共祖先

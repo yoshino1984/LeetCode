@@ -19,26 +19,27 @@ public class P77Combinations {
         ans = new ArrayList<>();
         this.k = k;
         this.n = n;
-        this.myCombine(1, new ArrayList<>());
+        myCombine(1, new ArrayList<>());
         return ans;
     }
 
-    List<List<Integer>> ans;
-    int n;
-    int k;
-    private void myCombine(int cur, List<Integer> list) {
+    private void myCombine(int num, List<Integer> list) {
         if (list.size() == k) {
             ans.add(new ArrayList<>(list));
             return;
         }
 
-        // 第 list.size()-1 个元素的添加
-        for (int i = cur; i <= n; i++) {
+        // 当剩余元素不够填充结果时，剪枝
+        for (int i = num; i <= n + 1 - (k - list.size()); i++) {
             list.add(i);
             myCombine(i + 1, list);
             list.remove(list.size() - 1);
         }
     }
+
+    List<List<Integer>> ans;
+    int n;
+    int k;
 
     public static void main(String[] args) {
         new P77Combinations().combine(4, 2);
