@@ -12,36 +12,28 @@ public class P46Permutations {
      * @return
      */
     public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> lists = new ArrayList<>();
-        if (nums.length == 0) {
-            lists.add(new ArrayList<>());
-        } else {
-            permute(nums, 0, nums.length - 1, new ArrayList<>(), lists);
-        }
-        return lists;
+        List<List<Integer>> res = new ArrayList<>();
+        permute(nums, new ArrayList<>(), new boolean[nums.length], res);
+        return res;
     }
 
-    private static void permute(int[] nums, int start, int end, List<Integer> items, List<List<Integer>> lists) {
-        if (start == end) {
-            items.add(nums[start]);
-            lists.add(items);
-            return;
-        }
-        for (int i = start; i <= end; i++) {
-            swap(nums, start, i);
-            List<Integer> tempItems = new ArrayList<>(items);
-            tempItems.add(nums[start]);
-            permute(nums, start + 1, end, tempItems, lists);
-            swap(nums, start, i);
+    private static void permute(int[] nums, List<Integer> path, boolean[] used, List<List<Integer>> res) {
+        if (path.size() == nums.length) {
+            res.add(new ArrayList<>(path));
         }
 
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            used[i] = true;
+            path.add(nums[i]);
+            permute(nums, path, used, res);
+            used[i] = false;
+            path.remove(path.size() - 1);
+        }
     }
 
-    private static void swap(int[] nums, int start, int end) {
-        int temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-    }
 
     public static void main(String[] args) {
         List<List<Integer>> lists = permute(new int[]{1,2,3});
