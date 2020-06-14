@@ -5,8 +5,6 @@ package com.yoshino.p21to40;
  * 二分查找，时间复杂度O(logN)
  * 需要配合画图分析清楚当点落在左半边或者右半边的情况下，low和high的趋向性
  *
- * @author wangxin
- * 2020/5/5 23:05
  * @since
  **/
 public class P33SearchInRotatedSortedArray {
@@ -19,47 +17,31 @@ public class P33SearchInRotatedSortedArray {
         }
     }
 
+    /**
+     * 二分查找解法，mid点的左半边或者右半边肯定都是有序的
+     * 时间复杂度O(logN)
+     * 
+     */
     public int search(int[] nums, int target) {
-        if (nums.length == 0) {
-            return -1;
-        } else if (nums[0] == target) {
-            return 0;
-        }
-        return search(nums, 0, nums.length - 1, target);
-    }
-
-    private int search(int[] nums, int low, int high, int target) {
-        if (low > high) {
-            return -1;
-        }
-        int mid = low + ((high - low) >> 1);
-        if (nums[mid] == target) {
-            return mid;
-        }
-        if (target > nums[0]) {
-            // target可能在左半区
-            if (nums[mid] > target) {
-                high = mid - 1;
-            } else {
-                if (nums[mid] < nums[0]) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[0] <= nums[mid]) {
+                if (nums[0] <= target && target < nums[mid]) {
                     high = mid - 1;
                 } else {
                     low = mid + 1;
                 }
-            }
-        } else {
-            // target可能在右半区
-            if (nums[mid] < target) {
-                low = mid + 1;
             } else {
-                if (nums[mid] < nums[0]) {
-                    high = mid - 1;
-                } else {
+                if (target <= nums[nums.length - 1] && target > nums[mid]) {
                     low = mid + 1;
+                } else {
+                    high = mid - 1;
                 }
             }
         }
-
-        return search(nums, low, high, target);
+        return -1;
     }
 }

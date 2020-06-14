@@ -6,10 +6,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 扫雷游戏
- *
- * @author wangxin
- * 2020/6/14 15:04
- * @since
  **/
 public class P529Minesweeper {
 

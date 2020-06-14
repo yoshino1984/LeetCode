@@ -8,9 +8,6 @@ import java.util.Objects;
 /**
  * 17.12. BiNode
  *
- * @author wangxin
- * 2020/5/7 23:53
- * @since
  **/
 public class BiNode {
 

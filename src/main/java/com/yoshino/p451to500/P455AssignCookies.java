@@ -4,10 +4,6 @@ import java.util.Arrays;
 
 /**
  * 分发饼干
- *
- * @author wangxin
- * 2020/6/14 17:03
- * @since
  **/
 public class P455AssignCookies {
 

@@ -8,9 +8,6 @@ import java.util.Map;
 /**
  * 从前序与中序遍历序列构造二叉树
  *
- * @author wangxin
- * 2020/6/7 21:54
- * @since
  **/
 public class P105ConstructBinaryTreeFromPreorderAndInorderTraversal {
 

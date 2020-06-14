@@ -1,12 +1,10 @@
 package com.yoshino.p121top140;
 
-import com.google.common.collect.Lists;
-
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.List;
 
 /**
- * 单词接龙
+ * 单词接龙ii
  * fixme 未查找出所有结果
  *
  * @author wangxin

@@ -9,9 +9,6 @@ import java.util.List;
 /**
  * 汉诺塔问题
  * 时间复杂度O(2^n)
- * @author wangxin
- * 2020/5/3 23:10
- * @since
  **/
 public class Hanota {
 

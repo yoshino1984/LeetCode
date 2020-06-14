@@ -11,44 +11,48 @@ import java.util.*;
  **/
 public class Solution {
 
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        if (beginWord.equals(endWord)) {
-            return 1;
-        }
-        Set<String> wordSet = new HashSet<>(wordList);
-        if (!wordSet.contains(endWord)) {
-            return 0;
-        }
-        Deque<String> deque = new LinkedList<>();
-        deque.add(beginWord);
-        wordSet.remove(beginWord);
 
-        int count = 1;
-        while (!deque.isEmpty()) {
-            count++;
-            int size = deque.size();
-            for (int i = 0; i < size; i++) {
-                String cur = deque.pollFirst();
-                for (int j = 0; j < cur.length(); j++) {
-                    for (int k = 0; k < 26; k++) {
-                        String newGen = genLadder(cur, j, 'a' + k);
-                        if (newGen.equals(endWord)) {
-                            return count;
-                        } else if (wordSet.remove(newGen)) {
-                            deque.addLast(newGen);
-                        }
-                    }
-                }
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        return findTarget(matrix, target, 0, matrix.length * matrix[0].length - 1);
+    }
+
+    private boolean findTarget(int[][] matrix, int target, int low, int high) {
+        if (low > high) {
+            return false;
+        }
+        int mid = low + (high - low) / 2;
+        int row = mid / matrix[0].length;
+        int col = mid % matrix[0].length;
+        if (matrix[row][col] == target) {
+            return true;
+        } else if (matrix[row][col] < target) {
+            return findTarget(matrix, target, mid + 1, high);
+        } else {
+            return findTarget(matrix, target, low, mid - 1);
+        }
+    }
+
+    public int findMin(int[] nums) {
+        if (nums[0] <= nums[nums.length - 1]) {
+            return nums[0];
+        }
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            // 进行mid位置左右是否符合条件的检查
+            if (nums[mid] > nums[mid + 1]) {
+                return nums[mid + 1];
+            } else if (nums[mid] < nums[mid - 1]) {
+                return nums[mid];
+            } else if (nums[mid] > nums[0]) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
         }
-
-        return 0;
+        return nums[0];
     }
-
-    private String genLadder(String cur, int i, int newChar) {
-        char[] chars = cur.toCharArray();
-        chars[i] = (char) newChar;
-        return String.valueOf(chars);
-    }
-
 }

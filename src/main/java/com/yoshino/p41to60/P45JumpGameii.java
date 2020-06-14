@@ -19,9 +19,9 @@ public class P45JumpGameii {
      */
     public int jump(int[] nums) {
         int len = nums.length;
-        // 下一条所能达到的最右节点
+        // 下一层跳所能达到的最右节点
         int maxPosition = 0;
-        // 当前跳所能到达的最右节点
+        // 当前层所能到达的最右节点
         int end = 0;
         int step = 0;
         for (int i = 0; i < len - 1; i++) {
