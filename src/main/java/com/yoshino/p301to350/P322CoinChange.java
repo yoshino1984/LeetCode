@@ -1,5 +1,7 @@
 package com.yoshino.p301to350;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,7 +56,13 @@ public class P322CoinChange {
         return -1;
     }
 
+//    public static int coinChange2(int[] coins, int amount) {
+//        if (amount == 0) {
+//            return 0;
+//        }
+//    }
+
     public static void main(String[] args) {
-        System.out.println(coinChange(new int[]{1, 2, 4}, 21));
+//        System.out.println(coinChange2(new int[]{1, 2, 4}, 21));
     }
 }

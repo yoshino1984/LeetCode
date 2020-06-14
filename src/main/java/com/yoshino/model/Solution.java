@@ -1,9 +1,6 @@
 package com.yoshino.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 刻意练习地方
@@ -14,29 +11,44 @@ import java.util.List;
  **/
 public class Solution {
 
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
-        Arrays.sort(nums);
-        boolean[] visited = new boolean[nums.length];
-        dfs(nums, new LinkedList<>(), visited, ans);
-        return ans;
-    }
-
-    private void dfs(int[] nums, LinkedList<Integer> path, boolean[] visited, List<List<Integer>> ans) {
-        if (nums.length == path.size()) {
-            ans.add(new ArrayList<>(path));
-            return;
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (beginWord.equals(endWord)) {
+            return 1;
         }
+        Set<String> wordSet = new HashSet<>(wordList);
+        if (!wordSet.contains(endWord)) {
+            return 0;
+        }
+        Deque<String> deque = new LinkedList<>();
+        deque.add(beginWord);
+        wordSet.remove(beginWord);
 
-        for (int i = 0; i < nums.length; i++) {
-            if (visited[i] || (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])) {
-                continue;
+        int count = 1;
+        while (!deque.isEmpty()) {
+            count++;
+            int size = deque.size();
+            for (int i = 0; i < size; i++) {
+                String cur = deque.pollFirst();
+                for (int j = 0; j < cur.length(); j++) {
+                    for (int k = 0; k < 26; k++) {
+                        String newGen = genLadder(cur, j, 'a' + k);
+                        if (newGen.equals(endWord)) {
+                            return count;
+                        } else if (wordSet.remove(newGen)) {
+                            deque.addLast(newGen);
+                        }
+                    }
+                }
             }
-            visited[i] = true;
-            path.addLast(nums[i]);
-            dfs(nums, path, visited, ans);
-            visited[i] = false;
-            path.removeLast();
         }
+
+        return 0;
     }
+
+    private String genLadder(String cur, int i, int newChar) {
+        char[] chars = cur.toCharArray();
+        chars[i] = (char) newChar;
+        return String.valueOf(chars);
+    }
+
 }

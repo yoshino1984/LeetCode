@@ -1,4 +1,4 @@
-package com.yoshino.P801to850;
+package com.yoshino.P801to900;
 
 import java.util.Stack;
 
