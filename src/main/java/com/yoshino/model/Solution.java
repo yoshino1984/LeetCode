@@ -1,5 +1,6 @@
 package com.yoshino.model;
 
+
 import java.util.*;
 
 /**
@@ -11,48 +12,32 @@ import java.util.*;
  **/
 public class Solution {
 
+    public boolean isMatch(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
 
-    public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix.length == 0 || matrix[0].length == 0) {
-            return false;
-        }
-        return findTarget(matrix, target, 0, matrix.length * matrix[0].length - 1);
-    }
-
-    private boolean findTarget(int[][] matrix, int target, int low, int high) {
-        if (low > high) {
-            return false;
-        }
-        int mid = low + (high - low) / 2;
-        int row = mid / matrix[0].length;
-        int col = mid % matrix[0].length;
-        if (matrix[row][col] == target) {
-            return true;
-        } else if (matrix[row][col] < target) {
-            return findTarget(matrix, target, mid + 1, high);
-        } else {
-            return findTarget(matrix, target, low, mid - 1);
-        }
-    }
-
-    public int findMin(int[] nums) {
-        if (nums[0] <= nums[nums.length - 1]) {
-            return nums[0];
-        }
-        int low = 0, high = nums.length - 1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            // 进行mid位置左右是否符合条件的检查
-            if (nums[mid] > nums[mid + 1]) {
-                return nums[mid + 1];
-            } else if (nums[mid] < nums[mid - 1]) {
-                return nums[mid];
-            } else if (nums[mid] > nums[0]) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+        for (int i = 0; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i][j - 2] || (match(s, p, i, j - 1) && dp[i - 1][j]);
+                } else {
+                    if (match(s, p, i, j)) {
+                        dp[i][j] = dp[i - 1][j - 1];
+                    }
+                }
             }
         }
-        return nums[0];
+
+        return dp[m][n];
     }
+
+    private boolean match(String s, String p, int i, int j) {
+        if (i == 0) {
+            return false;
+        }
+        return p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1);
+    }
+
 }

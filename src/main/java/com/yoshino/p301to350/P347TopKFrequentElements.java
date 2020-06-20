@@ -1,9 +1,7 @@
-package com.yoshino.p351to400;
+package com.yoshino.p301to350;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 /**
  * 前 K 个高频元素
