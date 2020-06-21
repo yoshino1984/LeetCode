@@ -11,6 +11,7 @@ public class P120Triangle {
      * 动态规划的方法
      * 使用数组比使用动态数组更省时间和空间（区别应该不大）
      * 时间复杂度O(N) ， N为三角形所有元素的个数
+     * 自顶向下计算每一层的每个节点的最短路径和
      *
      * @param triangle
      * @return
@@ -38,6 +39,27 @@ public class P120Triangle {
             min = Math.min(min, integer);
         }
         return min;
+    }
+
+    /**
+     * dp自底向上计算最短路径和
+     *
+     * @param triangle
+     * @return
+     */
+    public int minimumTotal2(List<List<Integer>> triangle) {
+        if (triangle.size() == 0 || triangle.get(0).size() == 0) {
+            return 0;
+        }
+
+        for (int i = triangle.size() - 2; i >= 0; i--) {
+            for (int j = 0; j < triangle.get(i).size(); j++) {
+                int sum = triangle.get(i).get(j) + Math.min(triangle.get(i + 1).get(j), triangle.get(i + 1).get(j + 1));
+                triangle.get(i).set(j, sum);
+            }
+        }
+
+        return triangle.get(0).get(0);
     }
 
     public static void main(String[] args) {

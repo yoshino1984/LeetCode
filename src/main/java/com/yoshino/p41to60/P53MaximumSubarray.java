@@ -13,6 +13,18 @@ public class P53MaximumSubarray {
      * 动态规划解法
      * 时间复杂度O(N)
      */
+    public static int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] += Math.max(0, nums[i - 1]);
+            max = Math.max(max, nums[i]);
+        }
+        return max;
+    }
+
     public static int maxSubArray1(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -26,6 +38,7 @@ public class P53MaximumSubarray {
         }
         return ret;
     }
+
 
     public static void main(String[] args) {
         System.out.println(maxSubArray1(new int[] {-2,1,-3,4,-1,2,1,-5,4}));
