@@ -1,5 +1,7 @@
 package com.yoshino.p61to80;
 
+import java.util.Arrays;
+
 public class P64MinimumPathSum {
 
     /**
@@ -27,6 +29,29 @@ public class P64MinimumPathSum {
             }
         }
         return grid[grid.length - 1][grid[0].length - 1];
+    }
+
+    /**
+     * 不破坏原有数组
+     * 时间复杂度O(MN)
+     * 空间复杂度O(M)
+     */
+    public int minPathSum1(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
+
+        int[] dp = new int[grid[0].length + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[1] = 0;
+
+        for (int i = 1; i <= grid.length; i++) {
+            for (int j = 1; j <= grid[0].length; j++) {
+                dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i - 1][j - 1];
+            }
+        }
+
+        return dp[grid[0].length];
     }
 
 

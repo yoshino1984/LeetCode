@@ -1,6 +1,5 @@
 package com.yoshino.p1001to1100;
 
-import com.yoshino.model.Solution;
 import com.yoshino.model.TreeNode;
 
 import java.util.ArrayList;
