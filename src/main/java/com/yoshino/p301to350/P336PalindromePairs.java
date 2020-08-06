@@ -1,12 +1,19 @@
-package com.yoshino.model;
+package com.yoshino.p301to350;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
- * 刻意练习地方
+ * 回文对
+ *
+ * @author wangxin
+ * 2020/8/6 22:50
+ * @since
  **/
-class Solution {
-    TrieNode root;
+public class P336PalindromePairs {
+TrieNode root;
 
     public List<List<Integer>> palindromePairs(String[] words) {
         root = new TrieNode();
