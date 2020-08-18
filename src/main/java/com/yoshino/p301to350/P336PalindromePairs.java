@@ -7,13 +7,9 @@ import java.util.Objects;
 
 /**
  * 回文对
- *
- * @author wangxin
- * 2020/8/6 22:50
- * @since
  **/
 public class P336PalindromePairs {
-TrieNode root;
+    TrieNode root;
 
     public List<List<Integer>> palindromePairs(String[] words) {
         root = new TrieNode();
