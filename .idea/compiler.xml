@@ -17,11 +17,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LeetCode" />
+        <module name="yoshino-leetcode" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="LeetCode" target="11" />
+      <module name="yoshino-leetcode" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
