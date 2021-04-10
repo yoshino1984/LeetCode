@@ -1,21 +1,20 @@
 package com.yoshino;
 
-
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-/**
- * 刻意练习地方
- **/
 class Solution {
 
+    public int findMin(int[] nums) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] < nums[high]) {
+                high = mid;
+            } else if (nums[mid] > nums[high]) {
+                low = mid + 1;
+            } else if (nums[mid] == nums[high]) {
+                high--;
+            }
+        }
+        return nums[low];
+    }
 
 }
-
-
