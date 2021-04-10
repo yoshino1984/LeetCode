@@ -1,4 +1,4 @@
-package com.yoshino.dataStructure;
+package com.yoshino.data.structure;
 
 import lombok.ToString;
 

@@ -1,4 +1,4 @@
-package com.yoshino.dataStructure;
+package com.yoshino.data.structure;
 
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
